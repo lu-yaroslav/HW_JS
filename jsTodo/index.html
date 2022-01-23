@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./style.css">
+  <script src="https://kit.fontawesome.com/16d88a94ed.js" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+  crossorigin="anonymous"></script>
+  <title>Document</title>
+</head>
+<body>
+
+  <div class="wraper">
+    <h1>todo list</h1>
+    <div class="container">
+      <input id="inp" class="inp" type="text" placeholder="Task">
+      <button id="add" class="add">ADD</button>
+      <br>
+      <div class="search">
+        <button id="sort-date" class="sort"><i class="fas fa-sort"></i></button>
+        <button id="sort-priority" class="sort"><i class="fas fa-sort"></i></button>
+        <button id="sort-alpha" class="sort"><i class="fas fa-sort"></i></button>
+        <input id="search" class="inp-search" style="font-family: FontAwesome;" type="text" placeholder="&#xf002">
+        <button id="btnSearch" class="sort"><i class="fas fa-filter"></i></button>
+      </div>
+      <!-- <div class="list" id="tasks-header">
+        <div class="row">
+          <div>
+            <i class="fas fa-sort"></i>
+          </div>
+        </div>
+      </div> -->
+      <div class="list" id="tasks">
+      </div>
+    </div>
+
+    <!-- Модальное окно -->
+    <div id="myModal" class="modal-window">
+      <div class="modal-content">
+        <p>Поле пустое</p>
+        <button id="btn-ok" class="modal-btn btn-ok" >OK</button>
+      </div>
+    </div>
+
+      <!-- Модальное окно удаление-->
+    <div id="myModalDelete" class="modal-window">
+      <div class="modal-content">
+        <p>Delete item?</p>
+        <button id="btnDelete-ok" class="modal-btn btn-ok" >OK</button>
+        <button id="btnDelete-cancel" class="modal-btn btn-cancel">Отмена</button>
+      </div>
+    </div>  
+
+    <!-- Модальное окно редактирование -->
+    <div id="myModalEdit" class="modal-window">
+      <div class="modal-content">
+        <label for="">
+          <textarea class="modal-edit" id="modal-edit" cols="30" type="text" rows="10" placeholder="Next text of todo item..."></textarea>
+        </label>
+        <button id="btnEdit-ok" class="modal-btn btn-ok" >OK</button>
+        <button id="btnEdit-cancel" class="modal-btn btn-cancel" >Отмена</button>
+      </div>
+    </div>  
+
+  </div>  
+  <script src="./index.js" ></script>  
+</body>
+</html>

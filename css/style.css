@@ -1,0 +1,128 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background-color: rgb(170, 195, 223);
+}
+.wraper {
+  background-color: white;
+  width: 50%;
+  height: 400px; 
+  margin: 60px auto;
+  padding: 30px;
+}
+.form {
+  position: relative;
+  padding-top: 30px;
+
+}
+.size {
+  margin: 5px 0 20px 0;
+  width: 60%;
+  height: 25px;
+}
+.title {
+  font-size: 14px;
+}
+.btn {
+  position: absolute;
+  width: 75px;
+  height: 25px;
+  background-color: steelblue;
+  color: white;
+  right: 250px;
+  bottom: -20px;
+}
+/* modal-window */
+.modal-window {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(170, 195, 223, 0.9 );
+}
+.modal-content {
+  background-color: grey;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid rgb(37, 65, 102);
+  width: 50%;
+}
+.modal-btn {
+  float: right;
+  cursor: pointer;
+}
+.btn-ok {
+  margin-left: 15px;
+}
+ .modal-btn:hover {
+  color: #fff;
+  background-color: #c82333;
+  border-color: #bd2130;
+}
+/* todoList */
+.wraper {
+  text-align: center;
+}
+.inp {
+  width: 70%;
+}
+.add {
+  width: 60px;
+  background-color: rgb(170, 170, 170);
+  color: white;
+  border-radius: 15%;
+}
+.add:hover {
+  background-color: rgb(96, 100, 218);
+}
+.search {
+  width: 50%;  
+  margin: 20px 20px;
+}
+.row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  font-size: 16px;
+  background-color: rgba(238, 240, 242, 0.994);
+}
+.done {
+  background-color: rgb(213, 230, 230);
+}
+.date{
+  text-align: center;
+}
+.priority {
+  width: 7%;
+  height: 100%;
+  text-align: center;
+  background-color: rgb(48, 48, 48);
+  color: white;
+}
+.todo {
+  width: 60%;  
+}
+#edit {
+  background-color: green;
+  border-radius: 15px;
+}
+.fa-user-edit {
+  background-color: green;
+  color: white;  
+}
+#delete {
+  background-color: blue;
+  border-radius: 15px;
+}
+.fa-trash-alt {
+  background-color: blue;
+  color: white;
+}
