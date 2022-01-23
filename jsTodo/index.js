@@ -12,11 +12,7 @@ function todoListData() {
     }
     else {
       this.classList.remove("done");
-    };
-    // let search = temp.todo.filter(word => word.length > 3);
-    // console.log();
-
-  
+    };  
     todoList.push(temp);        
   });
   
@@ -54,6 +50,7 @@ function out (todoList) {
     updateTodoList();
   });
 
+  // Delete
   $('.delete-icon').click(function() {  
     let $row = $(this).parent('button').parent('.delete').parent('.row');    
     let $modal = $('#myModalDelete');
@@ -65,19 +62,13 @@ function out (todoList) {
   $('.edit-icon').click(function() {  
     let $row = $(this).parent('button').parent('.edit').parent('.row');//.text();
     let text = $row.children('.todo').text();
-    // .children('.todo').text()
-    // let s = $row.children('.todo');
-    // console.log(s);
-      
+  
     console.log(text);
     let $modal = $('#myModalEdit');
     $modal.attr('edit_row_id', $row.attr('id'));
     $modal.show();
-    $('#modal-edit').val(text);
-    
-    // $modal.attr('edit', $row.attr('id'));
+    $('#modal-edit').val(text);    
   });
-
 
 };
 
@@ -119,7 +110,8 @@ $( document ).ready(function() {
     input.value ="";
     updateTodoList();
   });
-
+  
+  //Delete
   $('#btnDelete-ok').on('click', function() {
     let id = $('#myModalDelete').attr('row_to_remove');
     let $row = $(`#${id}`);
@@ -128,47 +120,36 @@ $( document ).ready(function() {
     $('#myModalDelete').hide();
   });
 
+  // Edit
   $('#btnEdit-ok').on('click', function() {
-   let id = $('#myModalEdit').attr('edit_row_id');
-   let $row = $(`#${id}`);
-   let newValue = $('#modal-edit').val();
-   $row.children('.todo').text(newValue);
-
-  //  text($('.todo').val())
-    // .text($('.todo').text())
-    // let $row = $()
-    // let $row = $(`#${id}`);
-    
-    // // $row.remove();
-    // console.log(id);
-    // updateTodoList();
+    let id = $('#myModalEdit').attr('edit_row_id');
+    let $row = $(`#${id}`);
+    let newValue = $('#modal-edit').val();
+    $row.children('.todo').text(newValue);
     $('#myModalEdit').hide();
     updateTodoList();
   });
 
 
-     // Sort by alphabet
-     $('#sort-alpha').on('click', function() {
-      let todoList = todoListData();
-        todoList.sort(function(a, b) {
-          return a.todo.localeCompare(b.todo);
-        });
-        if ($(this).hasClass('up')) {
-          out(todoList);
-    
-          $(this).attr('class', 'down');
-        } else {
-          out(todoList.reverse());
-         
-          $(this).attr('class', 'up');
-        }
-     })
+    // Sort by alphabet
+    $('#sort-alpha').on('click', function() {
+    let todoList = todoListData();
+      todoList.sort(function(a, b) {
+        return a.todo.localeCompare(b.todo);
+      });
+      if ($(this).hasClass('up')) {
+        out(todoList);
+  
+        $(this).attr('class', 'down');
+      } else {
+        out(todoList.reverse());
+        
+        $(this).attr('class', 'up');
+      }
+    })
 
-    // todoList = todoList.sort(function(a, b) {
-    //   return a.todo.localeCompare(b.todo);
-    // });
-
-  // сортировка по дате
+  
+  // Sort by date
   $('#sort-date').on('click', function() {
     let todoList = todoListData();
 
@@ -193,7 +174,7 @@ $( document ).ready(function() {
     }
   });
  
-  // сортировка по приоритету
+  // Sort by priority
   $('#sort-priority').on('click', function() {
     let todoList = todoListData();
 
@@ -217,49 +198,35 @@ $( document ).ready(function() {
       $(this).attr('class', 'up');
     }
   });
-  $('.priority-up').on('click', function() {
-    // let todoList = todoListData();    
-    // let x = this.parentNode.parentNode.childNodes[1];
-    // let t = x.outerText;
-    // let y = parseInt(t) + 1;
-    // x.textContent = y
-    
-    // console.log(x);
 
+  $('.priority-up').on('click', function() {   
     let $priority = $(this).parent().parent().find('.priority');
     let counter = parseInt($priority.text());
     $priority.html(counter + 1);
     updateTodoList();
-
   });
 
   $('.priority-down').on('click', function() {
-    // let todoList = todoListData();    
-    // let x = this.parentNode.parentNode.childNodes[1];
+   
     let $priority = $(this).parent().parent().find('.priority');
     let counter = parseInt($priority.text());
     $priority.html(counter - 1);
-    updateTodoList();
-    // let t = x.outerText;
-    // let y = parseInt(t) - 1;
-    // x.textContent = y
-    
-    // console.log(x);
-
+    updateTodoList();   
   });
+  
   $('#btnSearch').on('click', function() {
-   let search = $('#search').val();
-   
-  //  let todoList = todoListData();
+    let search = $('#search').val();
 
-  $('.row').each(function() {
-    if (search) {
-      let text = $(this).find('.todo').text();
-      text.includes(search) ? $(this).show() : $(this).hide();
-    } else {
-      $(this).show();
-    }
-  });
+    $('.row').each(function() {
+      if (search) {
+        let text = $(this).find('.todo').text();
+        text.includes(search) ? $(this).show() : $(this).hide();
+      } else {
+        $(this).show();
+      }
+    });
+
+   //  let todoList = todoListData();
   //  let filteredList = [];
   //  if (search) {
   //   filteredList = todoList.filter(item => item.todo.includes(search));
